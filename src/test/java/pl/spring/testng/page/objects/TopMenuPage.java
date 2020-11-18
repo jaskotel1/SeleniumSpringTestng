@@ -14,12 +14,17 @@ public class TopMenuPage {
     @Autowired
     private WaitForElement wait;
 
+    @Autowired
+    private LoginPage loginPage;
+
     @FindBy(css = "#MenuContent a[href*='signonForm']")
     private WebElement signOnLink;
 
-    public void clickOnSignInLink() {
+    public LoginPage clickOnSignInLink() {
         wait.waitUntilElementIsClickable(signOnLink);
         signOnLink.click();
         log.info("Clicked on Sign on Link");
+
+        return loginPage;
     }
 }

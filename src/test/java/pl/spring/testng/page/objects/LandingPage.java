@@ -14,12 +14,17 @@ public class LandingPage {
     @Autowired
     private WaitForElement wait;
 
+    @Autowired
+    private TopMenuPage topMenuPage;
+
     @FindBy(css = "#Content a")
     private WebElement enterStoreLink;
 
-    public void clickOnEnterStoreLink() {
+    public TopMenuPage clickOnEnterStoreLink() {
         wait.waitUntilElementIsClickable(enterStoreLink);
         enterStoreLink.click();
         log.info("Clicked on Enter Store link");
+
+        return topMenuPage;
     }
 }
